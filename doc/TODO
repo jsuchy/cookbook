@@ -1,0 +1,48 @@
+Debt
+=======
++ recipes/show.html.erb splits on \n and looks like crap
+
+Stories
+=======
++ Ingredients separate from directions
+  - form for adding ingredients, showing parsed value afterwards
+  - allow specifying ingredients that are parsed, or the old way where they are added to preparation
+
++ Add iphone templates for login
++ Make sure "Using an iPhone?" links work both local and in production
++ as a user I can change my password
+- Print all (sorted by category, alpha within category)
+- Print on recipe card
+- Search by category, ingredient, tags (region, type, etc.)
+- Export for email
+
+
+== Original todo
+
+Cookbook
+
+A recipe has:
++ Title
++ Bake Temperature
++ Prep Time
++ Cook Time
++ Preparation
++ Yield
++ Source
++ Image
++ Category
++ Ingredients, e.g. 1 lb Butter, 1 ts Fresh Oregano, 1 ea Bay Leaf, 1/2 c Black Pepper, 5 ea Garlic Cloves, chopped
++ Classifications
+- Equipment, e.g. 9x13 roasting pan, cookie sheet, etc.
+- Nutritional Content (Calories, Fat, etc)
+- Notes
+
+Features:
+
+TODO:
+- Sort
+- Ingredient list separated out
+- Preparation list
+- Doesn't show image URL
+- Where do you enter notes?
+

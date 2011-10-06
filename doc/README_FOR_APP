@@ -1,0 +1,15 @@
+Use this README file to introduce your application and point to useful places in the API for learning more.
+Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+
+=== Backup production database ===
+mysqldump -u rails -p -h mysql.jimandamelia.com jimandamelia_cookbook_production > backup.sql
+
+=== Connect to production database ===
+mysql -u rails -p -h mysql.jimandamelia.com jimandamelia_cookbook_production
+
+=== To restore a MySQL database  ===
+mysql -u rails -p -h mysql.jimandamelia.com jimandamelia_cookbook_production < backup.sql
+
+=== Deploy to production ===
+cap deploy

@@ -1,0 +1,22 @@
+<% if flash[:notice] -%>
+	<div class="flash"><%= flash[:notice] %></div>
+<% end -%>
+
+<div id="recipe_search">
+	<%= form_tag({:controller => "recipes", :action => "search"}) do %>
+		<%= text_field_tag "query", nil, :size => 40 %>
+		<%= submit_tag "Search" %>
+	<% end %>
+</div>
+
+<div id="recipe_list">
+	<ul> 
+		<% if @recipes.empty? -%>
+		  <li>No Recipes Found</li>
+		<% else -%>
+  		<% @recipes.each do |recipe| -%>
+  			<li><%= link_to recipe.title, recipe_path(recipe) %></li>
+  		<% end -%>
+		<% end -%>
+	</ul>
+</div>

@@ -1,0 +1,36 @@
+<h2><%= @recipe.title %></h2>
+
+<div>
+	<table>
+		<tr>
+			<td>Source:</td>
+			<td><%= @recipe.source %></td>
+		</tr>
+		<tr>
+			<td>Yield:</td>
+			<td><%= @recipe.yield %></td>
+		</tr>
+		<tr>
+			<td>Prep Time:</td>
+			<td><%= @recipe.prep_time %> minutes</td>
+		</tr>
+		<tr>
+			<td>Cook Time:</td>
+			<td><%= @recipe.cook_time_hours %> hours <%= @recipe.cook_time_minutes.to_i %> minutes</td>
+		</tr>
+	</table>
+</div>
+
+<h3>Preparation</h3>
+<div>
+  <% @recipe.preparation.to_s.split("\n").each do |paragraph| -%>
+    <p><%= paragraph %></p>
+  <% end -%>
+</div>
+
+<% if @recipe.belongs_to_user?(session[:user_id]) -%>
+  <div id="recipe_links">
+  	<%= link_to "Edit Recipe", {:controller => "recipes", :action => "edit", :id => @recipe.id } %> &nbsp; | &nbsp;
+  	<%= link_to "Delete Recipe", @recipe, :confirm => "Are you sure?", :method => "delete" %>
+  </div>
+<% end -%>

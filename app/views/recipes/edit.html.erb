@@ -1,0 +1,5 @@
+<%= form_for @recipe do |form| -%>
+	<%= render :partial => 'recipes/form', :locals => {:form => form} %>
+	<%= link_to "Cancel", recipe_path(@recipe) %>
+  <%= submit_tag 'Update' %>
+<% end %>

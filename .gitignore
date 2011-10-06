@@ -1,0 +1,6 @@
+.bundle
+db/backups
+log/*.log
+misc/
+tmp/
+

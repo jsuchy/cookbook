@@ -1,0 +1,5 @@
+<%= form_for @recipe, :as => :recipe, :url => { :controller => "recipes", :action => "create" } do |form| -%>
+	<%= render :partial => 'recipes/form', :locals => { :form => form } %>
+	<%= link_to "Cancel", { :controller => "recipes", :action => "index" } %>
+  <%= submit_tag 'Create' %>
+<% end %>

@@ -1,0 +1,23 @@
+<%= form_tag "attempt_login" do %>
+
+	<div id="login_panel">
+
+		<table width="40%">
+			<tr>
+				<td><%= label_tag "user", "Username:" %></td>
+				<td><%= text_field_tag "user" %></td>
+			</tr>
+			<tr>
+				<td><%= label_tag "password", "Password:" %></td>
+				<td><%= password_field_tag "password" %></td>
+			</tr>
+			<tr>
+				<td colspan="2">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right"><%= submit_tag "Login", :id => "login"%></td>
+			</tr>
+		</table>
+
+	</div>
+<% end -%>
