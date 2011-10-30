@@ -31,6 +31,6 @@
 <% if @recipe.belongs_to_user?(session[:user_id]) -%>
   <div id="recipe_links">
   	<%= link_to "Edit Recipe", {:controller => "recipes", :action => "edit", :id => @recipe.id } %> &nbsp; | &nbsp;
-  	<%= link_to "Delete Recipe", @recipe, :confirm => "Are you sure?", :method => "delete" %>
+  	<%= link_to "Delete Recipe", @recipe, :confirm => "Are you sure?", :method => :delete %>
   </div>
 <% end -%>
