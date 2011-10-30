@@ -3,14 +3,14 @@
 <% end -%>
 
 <div id="recipe_search">
-	<%= form_tag({:controller => "recipes", :action => "search"}) do %>
+	<%= form_tag('recipes/search') do %>
 		<%= text_field_tag "query", nil, :size => 40 %>
 		<%= submit_tag "Search" %>
 	<% end %>
 </div>
 
 <div id="recipe_list">
-	<ul> 
+	<ul>
 		<% if @recipes.empty? -%>
 		  <li>No Recipes Found</li>
 		<% else -%>
