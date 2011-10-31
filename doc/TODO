@@ -2,22 +2,24 @@ Debt
 =======
 + recipes/show.html.erb splits on \n and looks like crap
 
-Stories
-=======
+Stories (+ means higher priority, - is lower, initials are for who requested it)
+============================================
+
+In Progress
 + Ingredients separate from directions
   - form for adding ingredients, showing parsed value afterwards
   - allow specifying ingredients that are parsed, or the old way where they are added to preparation
 
-+ Add iphone templates for login
-+ Make sure "Using an iPhone?" links work both local and in production
-+ as a user I can change my password
-- Print all (sorted by category, alpha within category)
-- Print on recipe card
-- Search by category, ingredient, tags (region, type, etc.)
-- Export for email
-
-
-== Original todo
+Backlog
+AS + Email recipe to friend (no access to app necessary, just nicely formatted in an email)
+BW + I'd like to be able to select a few recipes and organize them into a "weekly menu"
+BW + I'd like to be able to generate a well organized "shopping list" from the weekly menu.
+AS - Add a picture to a recipe (there is just an image url, which isn't shown or anything)
+AS - Print on recipe card
+AS - Print all (sorted by category, alpha within category)
+JS - Add iphone templates for login
+JS - Make sure "Using an iPhone?" links work both local and in production
+JS - user management, including changing password, adding users
 
 Cookbook
 
@@ -36,13 +38,4 @@ A recipe has:
 - Equipment, e.g. 9x13 roasting pan, cookie sheet, etc.
 - Nutritional Content (Calories, Fat, etc)
 - Notes
-
-Features:
-
-TODO:
-- Sort
-- Ingredient list separated out
-- Preparation list
-- Doesn't show image URL
-- Where do you enter notes?
 
