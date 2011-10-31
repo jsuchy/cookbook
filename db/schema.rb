@@ -38,10 +38,6 @@ ActiveRecord::Schema.define(:version => 20081222044412) do
     t.datetime "updated_at"
   end
 
-  create_table "schema_info", :id => false, :force => true do |t|
-    t.integer "version"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "email"
