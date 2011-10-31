@@ -6,7 +6,6 @@ gem 'rails', '3.0.9'
 gem 'rake', '0.8.7'
 
 group :test, :development do
-  gem 'capistrano'
   gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'launchy'
