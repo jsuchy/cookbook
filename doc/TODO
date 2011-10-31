@@ -39,3 +39,7 @@ A recipe has:
 - Nutritional Content (Calories, Fat, etc)
 - Notes
 
+
+Database Backup
++ heroku pgbackups:capture
+
