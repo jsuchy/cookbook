@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081222044412) do
+ActiveRecord::Schema.define(:version => 17) do
 
   create_table "ingredients", :force => true do |t|
     t.integer  "recipe_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20081222044412) do
     t.string   "yield"
     t.string   "source"
     t.string   "image_url"
+    t.integer  "category_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

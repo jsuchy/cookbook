@@ -3,4 +3,5 @@ db/backups
 log/*.log
 misc/
 tmp/
+db/test.sqlite3
 
