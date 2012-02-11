@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe User do
-
   before(:each) do
     @valid_attributes = {}
     @valid_attributes[:login] = "bob"
@@ -53,29 +52,23 @@ describe User do
   end
 
   describe "validations" do
-
     it { should validate_presence_of(:login) }
     it { should validate_presence_of(:email) }
     it { should validate_presence_of(:password) }
     it { should validate_presence_of(:password_confirmation) }
     it { should validate_presence_of(:salt) }
-
     it { should validate_uniqueness_of(:login) }
     it { should validate_uniqueness_of(:email) }
 
     it "should validate format of email address" do
       @user.email = "bad@email."
-
       @user.save
-
       @user.errors[:email].should include("is invalid")
     end
 
     it "should validate length of password" do
       @user.password = "123"
-
       @user.save
-
       @user.errors[:password].should include("is too short (minimum is 6 characters)")
     end
 
@@ -88,5 +81,4 @@ describe User do
       @user.errors[:password].should include("doesn't match confirmation")
     end
   end
-
 end

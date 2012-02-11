@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Recipe do
-
   before(:each) do
     clear_tables(Recipe, Ingredient)
     @recipe = Recipe.new
@@ -30,5 +29,4 @@ describe Recipe do
 
     Recipe.search_clause.should == "field1 LIKE ? OR field2 LIKE ?"
   end
-
 end

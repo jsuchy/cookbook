@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe "Recipes View Spec" do
-
   before(:each) do
     @chowder = mock_model(Recipe, :id => 111, :title => "chowder")
     @burger = mock_model(Recipe, :id => 222, :title => "burger")
@@ -11,7 +10,6 @@ describe "Recipes View Spec" do
   end
 
   describe "recipes/index" do
-
     before(:each) do
       assign(:recipes, [@chowder, @burger])
     end
@@ -44,11 +42,9 @@ describe "Recipes View Spec" do
 
       rendered.should =~ /Something happened/
     end
-
   end
 
   describe "recipes/show" do
-
     before(:each) do
       assign(:recipe, @recipe)
       session[:user_id] = 222
@@ -78,11 +74,9 @@ describe "Recipes View Spec" do
       rendered.should_not =~ /Delete Recipe/
       rendered.should_not =~ /Edit Recipe/
     end
-
   end
 
   describe "recipes/edit" do
-
     before(:each) do
       assign(:recipe, @recipe)
     end
@@ -92,11 +86,9 @@ describe "Recipes View Spec" do
 
       rendered.should =~ /Cancel/
     end
-
   end
 
   describe "recipes/new" do
-
     before(:each) do
       assign(:recipe, @recipe)
     end
@@ -106,7 +98,5 @@ describe "Recipes View Spec" do
 
       rendered.should =~ /Cancel/
     end
-
   end
-
 end

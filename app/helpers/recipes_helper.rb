@@ -1,3 +1,2 @@
 module RecipesHelper
-
 end

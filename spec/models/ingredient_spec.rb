@@ -144,8 +144,5 @@ describe Ingredient do
       actual.ingredient.should == expected.ingredient
       actual.instruction.to_s.should == expected.instruction.to_s
     end
-
   end
-
-
 end

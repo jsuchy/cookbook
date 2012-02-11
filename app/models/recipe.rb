@@ -13,5 +13,4 @@ class Recipe < ActiveRecord::Base
   def belongs_to_user?(user_id)
     return self.user_id.to_s == user_id.to_s
   end
-
 end

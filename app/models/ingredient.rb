@@ -28,5 +28,4 @@ class Ingredient < ActiveRecord::Base
     the_fraction = fractional_part_of_quantity.to_fraction
     return "#{the_fraction[0]}/#{the_fraction[1]}"
   end
-
 end

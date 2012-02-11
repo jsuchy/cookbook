@@ -7,17 +7,15 @@ class Float
     higher = 10 ** self.number_decimal_places
     lower = self * higher
 
-    gcden = greatest_common_divisor(higher, lower)
+    gcd = _greatest_common_divisor(higher, lower)
 
-    return (lower / gcden).round, (higher / gcden).round
+    return (lower / gcd).round, (higher / gcd).round
   end
 
-  private #################################################
-
-  def greatest_common_divisor(a, b)
+  def _greatest_common_divisor(a, b)
      while a % b != 0
-       a,b = b.round, (a % b).round
+       a, b = b.round, (a % b).round
      end
-     return b
+     b
   end
 end

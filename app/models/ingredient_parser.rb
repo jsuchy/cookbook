@@ -76,5 +76,4 @@ class IngredientParser
   def chop_last_ingredient
     @ingredient_words.last.chop!
   end
-
 end
