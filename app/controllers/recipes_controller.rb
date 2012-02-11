@@ -1,6 +1,4 @@
 class RecipesController < ApplicationController
-  layout "default"
-
   before_filter :secure_page
 
   def index
@@ -75,7 +73,7 @@ class RecipesController < ApplicationController
     render :template => "recipes/index"
   end
 
-  private #################################################
+  private
 
   def secure_page
     if session[:user_id].nil?
@@ -88,5 +86,4 @@ class RecipesController < ApplicationController
   def user_recipes
     return @user.recipes
   end
-
 end

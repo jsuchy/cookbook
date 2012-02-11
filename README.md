@@ -1,3 +1,3 @@
 Cookbook
 ========
-Source code that drives cookbookapp.heroku.com.
+Source code that drives cookbook.jsuchy.com.

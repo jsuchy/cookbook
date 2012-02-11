@@ -1,0 +1,260 @@
+/*
+Title: document.css
+
+Author: Jim Suchy (jsuchy@gmail.com)
+
+Contents:
+
+1. =R ESET
+2. =F ONTS
+3. =G LOBAL
+4. =T YPOGRAPHY
+5. =S TRUCTURAL
+6. =L ISTS
+7. =F ORMS
+8. =C USTOMIZED
+
+/* =R E S E T
+ * ---------------------------------------------------- */
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+/* =G L O B A L
+ * ---------------------------------------------------- */
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Myriad Pro", "MyriadPro", "Trebuchet MS", "Arial", sans-serif;
+    font-size: 1.4em;
+    background-color: #fff;
+    color: #7d7d7d;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Book Antiqua", "Palatino Linotype", "Palatino", "Georgia", "Times", "Times New Roman", serif;
+}
+
+/* =S T R U C T U R A L
+ * ---------------------------------------------------- */
+#doc {
+    margin: auto;
+    text-align: left;
+    width: 57.69em;
+    *width:56.25em;
+    min-width: 750px;
+}
+header {
+    text-align: left;
+    margin: 0em;
+}
+
+header h1 {
+    font-family: "Apple Chancery", "Comic Sans MS", sans-serif;
+    color: #348b93;
+    border: 0;
+    font-size: 3.2em;
+    line-height: 0.9em;
+    margin: 0em;
+}
+
+h2 {
+    font-size: 1.6em;
+    border-bottom: 1px solid #e7e2e3;
+    color: #4a585a;
+    margin: 1em 0em 0.6em 0em;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-top: 0.8em;
+    color: #656568;
+}
+
+#sidebar ul {
+    margin: 0em 0em 2em 0em;
+}
+
+#sidebar li {
+    margin: 0em 0em 0em 2em;
+    letter-spacing: 0.05em;
+    list-style-type: disc;
+}
+
+footer {
+    clear: both;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Arial", "Verdana", sans-serif;
+    font-size: 0.8em;
+    line-height: 1.4em;
+    margin: 5.0em 20.0em 5.0em 0em;
+    text-align: center;
+    border-bottom: 1px solid #e7e2e3;
+}
+
+footer .credits {
+    margin: 0em 24%;
+    background-color: #fff;
+    position: relative;
+    top: 0.8em;
+}
+
+#recipe_links {
+    margin-top: 1em;
+}
+
+#recipe_search {
+    margin: 0em 0em 1em 0.5em;
+}
+
+#recipe_search input {
+    margin-left: 0.5em;
+}
+
+.flash {
+	padding: 15px 40px 15px 50px;
+	border: solid 1px;
+	margin: 0 0 20px 0;
+	font-size: 14px;
+	line-height: 20px;
+  background-color: #F5F4F3;
+  border-color: #DDD;
+  color: #666;
+}
+
+#error {
+  background-color: #FEE;
+	border-color: #FCC;
+	color: #C44;
+}
+
+#message {
+  background-color: #EFD;
+	border-color: #BEA;
+	color: #593;
+}
+
+li {
+    margin: 0.4em 0em 0.4em 2em;
+    list-style-type: disc;
+}
+
+a:link, a:visited, a:hover, a:focus, a:active {
+    color: #7d7d7d;
+}
+
+p { margin: 0.5em 0em; }
+
+#sidebar {
+    margin: 0.8em 0em 0em 0em;
+    width: 12em;
+}
+
+
+/* =F O R M S
+ * ---------------------------------------------------- */
+select, input, button, textarea {
+  font-family: "Myriad Pro", "MyriadPro", "Trebuchet MS", "Arial", sans-serif;
+  font-size: 0.9em;
+}
+

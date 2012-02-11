@@ -1,6 +1,4 @@
 class LoginController < ApplicationController
-  layout "default"
-
   def attempt_login
     if @user = User.authenticate(params[:user], params[:password])
       session[:user_id] = @user.id
@@ -15,5 +13,4 @@ class LoginController < ApplicationController
     session[:user_id] = nil
     redirect_to :controller => "login", :action => "index"
   end
-
 end
