@@ -4,20 +4,17 @@
     <meta charset="UTF-8" />
     <title>Cookbook</title>
     <%= stylesheet_link_tag 'document' %>
+    <%= stylesheet_link_tag 'ingrid' %>
     <%= javascript_include_tag 'prototype' %>
     <%= javascript_include_tag 'rails' %>
     <%= csrf_meta_tag %>
   </head>
   <body>
-    <div role="document" id="doc">
+    <div role="document" id="doc" class="ingrid in-fourths">
       <header>
         <h1>Cookbook</h1>
       </header>
-      <div>
-        <%= render :partial => "shared/flash", :locals => {:flash => flash} %>
-        <%= yield %>
-      </div>
-      <div id="sidebar">
+      <div id="sidebar" class="unit">
         <% if logged_in? -%>
           <ul>
             <li><%= link_to "My Recipes", recipes_url %></li>
@@ -27,9 +24,13 @@
           </ul>
         <% end -%>
       </div>
-      <footer>
-        <div class="credits">Copyright &copy;<%= Date.today.year %></div>
-      </footer>
+      <div class="unit span-three">
+        <%= render :partial => "shared/flash", :locals => {:flash => flash} %>
+        <%= yield %>
+        <footer>
+          <div class="credits">Copyright &copy;<%= Date.today.year %></div>
+        </footer>
+      </div>
     </div>
   </body>
 </html>
