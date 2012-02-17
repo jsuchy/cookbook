@@ -1,0 +1,52 @@
+#!/usr/bin/env ruby
+require File.dirname(__FILE__) + '/../config/environment'
+require 'optparse'
+
+usage = nil
+ARGV.options do |opts|
+  opts.banner = "Usage: adduser <username> [options]"
+  opts.separator ""
+  opts.on("")
+  opts.on("-p", "--password=password", String, "Set the password on the command line.", "Default: password will be typed in standard input") { |v| PASSWORD = v }
+  opts.on("-m", "--email=email", String, "Set the email address on the command line.", "Default: email address will be typed in standard input") { |v| EMAIL = v }
+  opts.on("-e", "--environment=environment", String, "Environment (test/development/production)", "Default: defined in config/environment") { |v| ENV['RAILS_ENV'] = v }
+  opts.separator ""
+  usage = opts.to_s
+  opts.on("-h", "--help", "Show this help message.") { puts usage; exit }
+  opts.parse!
+end
+
+if ARGV[0] == nil or ARGV[0][0] == "-"[0]
+  puts usage
+  exit(-1)
+end
+
+def create_user
+  @user = User.new
+  @user.login = ARGV[0]
+  @user.password = @user.password_confirmation = get_password
+  @user.email = get_email
+
+  @user.save!
+end
+
+def get_password
+  defined?(PASSWORD) ? PASSWORD : get_user_input("password")  
+end
+
+def get_email
+  defined?(EMAIL) ? EMAIL : get_user_input("email")
+end
+
+def get_user_input(message)
+  $stdout.write "#{message}: "
+  $stdin.readline.chomp
+end
+
+begin
+  create_user
+  puts "User #{@user.login} added"
+rescue Exception => e
+  puts e.message
+	exit(-1)
+end
