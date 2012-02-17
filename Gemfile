@@ -1,16 +1,15 @@
 source 'http://rubygems.org'
 
-gem 'mysql2', '< 0.3' # freeze version until rails 3.1 is used
-gem 'rack', '1.2.1'   # freeze version for Dreamhost production deployment
-gem 'rails', '3.0.9'
-gem 'rake', '0.8.7'
+gem 'mysql2', '0.3.11'
+gem 'rack', '1.4.1'
+gem 'rails', '3.2.1'
+gem 'rake', '0.9.2.2'
 
 group :test, :development do
-  gem 'cucumber-rails'
-  gem 'database_cleaner'
-  gem 'heroku'
-  gem 'launchy'
-  gem "rspec-rails", "~> 2.4"
-  gem "shoulda", "~> 2.11"
-  gem 'sqlite3'
+  gem 'cucumber-rails', '1.2.1'
+  gem 'database_cleaner', '0.7.1'
+  gem 'heroku', '2.20.0'
+  gem 'launchy', '2.0.5'
+  gem "rspec-rails", '2.8.1'
+  gem 'sqlite3', '1.3.5'
 end

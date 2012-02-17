@@ -2,19 +2,14 @@ require 'spec_helper'
 
 describe User do
   before(:each) do
-    @valid_attributes = {}
-    @valid_attributes[:login] = "bob"
-    @valid_attributes[:email] = "bob@example.com"
-    @valid_attributes[:password] = "password"
-    @valid_attributes[:password_confirmation] = "password"
+    @valid_attributes = {
+      :login => "bob",
+      :email => "bob@example.com",
+      :password => "password",
+      :password_confirmation => "password"
+    }
     @user = User.create(@valid_attributes)
   end
-
-  it "should create a new instance given valid attributes" do
-    @user.save.should == true
-  end
-
-  it { should have_many(:recipes) }
 
   it "sorts recipes by name" do
     @user.recipes << Recipe.new(:title => "b")
@@ -24,26 +19,26 @@ describe User do
     @user.recipes.second.title.should == "b"
   end
 
-  it "should authenticate valid user" do
+  it "authenticates valid user" do
     @authenticated = User.authenticate("bob", "password")
 
     @authenticated.should_not be_nil
     @authenticated.id.should == @user.id
   end
 
-  it "should not authenticate with incorrect password" do
+  it "does not authenticate with incorrect password" do
     @authenticated = User.authenticate("bob", "wrong password")
 
     @authenticated.should be_nil
   end
 
-  it "should not authenticate for login that isn't found" do
+  it "does not authenticate for missing login" do
     @authenticated = User.authenticate("notbob", "password")
 
     @authenticated.should be_nil
   end
 
-  it "should hash when setting the password" do
+  it "hashes the password" do
     @user = User.new
     @user.password = "foobar"
 
@@ -52,33 +47,99 @@ describe User do
   end
 
   describe "validations" do
-    it { should validate_presence_of(:login) }
-    it { should validate_presence_of(:email) }
-    it { should validate_presence_of(:password) }
-    it { should validate_presence_of(:password_confirmation) }
-    it { should validate_presence_of(:salt) }
-    it { should validate_uniqueness_of(:login) }
-    it { should validate_uniqueness_of(:email) }
+    it "login is required" do
+      @user.login = nil
+      @user.valid?
+      @user.errors[:login].should include("can't be blank")
 
-    it "should validate format of email address" do
+      @user.login = "bob"
+      @user.should be_valid
+    end
+
+    it "email is required" do
+      @user.email = nil
+      @user.valid?
+      @user.errors[:email].should include("can't be blank")
+
+      @user.email = "bob@example.com"
+      @user.should be_valid
+    end
+
+    it "password is required" do
+      @user.password = nil
+      @user.valid?
+      @user.errors[:password].should include("can't be blank")
+
+      @user.password = "password"
+      @user.should be_valid
+    end
+
+    it "password_confirmation is required" do
+      @user.password_confirmation = nil
+      @user.valid?
+      @user.errors[:password_confirmation].should include("can't be blank")
+
+      @user.password_confirmation = "password"
+      @user.should be_valid
+    end
+
+    it "salt is required" do
+      @user.salt = nil
+      @user.valid?
+      @user.errors[:salt].should include("can't be blank")
+
+      @user.salt = "pepper"
+      @user.should be_valid
+    end
+
+    it "login is unique" do
+      duplicate_user = User.new(@valid_attributes)
+      duplicate_user.valid?
+      duplicate_user.errors[:login].should include("has already been taken")
+
+      duplicate_user.login = "notbob"
+      duplicate_user.email = "notbob@example.com"
+      duplicate_user.should be_valid
+    end
+
+    it "email is unique" do
+      duplicate_user = User.new(@valid_attributes)
+      duplicate_user.valid?
+      duplicate_user.errors[:email].should include("has already been taken")
+
+      duplicate_user.email = "notbob@example.com"
+      duplicate_user.login = "notbob"
+      duplicate_user.should be_valid
+    end
+
+    it "email address is valid" do
       @user.email = "bad@email."
-      @user.save
+      @user.valid?
       @user.errors[:email].should include("is invalid")
+
+      @user.email = "good@example.com"
+      @user.should be_valid
     end
 
-    it "should validate length of password" do
-      @user.password = "123"
-      @user.save
+    it "password is at least 6 characters" do
+      @user.password = "12345"
+      @user.valid?
       @user.errors[:password].should include("is too short (minimum is 6 characters)")
+
+      @user.password = "123456"
+      @user.password_confirmation = "123456"
+      @user.valid?
+      @user.should be_valid
     end
 
-    it "should validate confirmation of password" do
+    it "password_confirmation must match password" do
       @user.password = "password"
       @user.password_confirmation = "not password"
-
-      @user.save
-
+      @user.valid?
       @user.errors[:password].should include("doesn't match confirmation")
+
+      @user.password_confirmation = "password"
+      @user.should be_valid
     end
   end
 end

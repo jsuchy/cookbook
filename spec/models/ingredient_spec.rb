@@ -1,11 +1,7 @@
 require 'spec_helper'
 
 describe Ingredient do
-
-  it { should belong_to(:recipe) }
-
   describe "display" do
-
     it "displays basic ingredient" do
       ingredient = Ingredient.new(:quantity => "3", :uom => "cups", :ingredient => "cream")
 
@@ -51,11 +47,9 @@ describe Ingredient do
 
       ingredient.fractional_part_of_quantity_as_fraction.should == fraction
     end
-
   end
 
   describe "parse" do
-
     before(:each) do
       @recipe = Recipe.create!(:title => "test recipe for ingredients")
     end

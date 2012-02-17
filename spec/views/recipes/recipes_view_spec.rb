@@ -15,7 +15,7 @@ describe "Recipes View Spec" do
     end
 
     it "lists all recipes" do
-      render :template => "recipes/index.html.erb"
+      render :template => "recipes/index"
 
       rendered.should =~ /chowder/
       rendered.should =~ /burger/
@@ -24,13 +24,13 @@ describe "Recipes View Spec" do
     it "displays 'none found' message if no recipes displayed" do
       assign(:recipes, [])
 
-      render :template => "recipes/index.html.erb"
+      render :template => "recipes/index"
 
       rendered.should =~ /No Recipes Found/
     end
 
     it "should not display the flash if not set" do
-      render :template => "recipes/index.html.erb"
+      render :template => "recipes/index"
 
       rendered.should_not =~ /class=flash/
     end
@@ -38,7 +38,7 @@ describe "Recipes View Spec" do
     it "should display the flash if set" do
       flash[:notice] = "Something happened"
 
-      render :template => "recipes/index.html.erb"
+      render :template => "recipes/index"
 
       rendered.should =~ /Something happened/
     end
@@ -53,7 +53,7 @@ describe "Recipes View Spec" do
     it "should have a delete link if recipe belongs to user" do
       @recipe.should_receive(:belongs_to_user?).with(session[:user_id]).and_return(true)
 
-      render :template => "recipes/show.html.erb"
+      render :template => "recipes/show"
 
       rendered.should =~ /Delete Recipe/
     end
@@ -61,7 +61,7 @@ describe "Recipes View Spec" do
     it "should have an edit link if recipe belongs to user" do
       @recipe.should_receive(:belongs_to_user?).with(session[:user_id]).and_return(true)
 
-      render :template => "recipes/show.html.erb"
+      render :template => "recipes/show"
 
       rendered.should =~ /Edit Recipe/
     end
@@ -69,7 +69,7 @@ describe "Recipes View Spec" do
     it "should not have edit or delete link if recipe does not belong to logged in user" do
       @recipe.should_receive(:belongs_to_user?).with(session[:user_id]).and_return(false)
 
-      render :template => "recipes/show.html.erb"
+      render :template => "recipes/show"
 
       rendered.should_not =~ /Delete Recipe/
       rendered.should_not =~ /Edit Recipe/
@@ -82,7 +82,7 @@ describe "Recipes View Spec" do
     end
 
     it "should have a cancel link" do
-      render :template => "recipes/edit.html.erb"
+      render :template => "recipes/edit"
 
       rendered.should =~ /Cancel/
     end
@@ -94,7 +94,7 @@ describe "Recipes View Spec" do
     end
 
     it "should have a cancel link" do
-      render :template => "recipes/new.html.erb"
+      render :template => "recipes/new"
 
       rendered.should =~ /Cancel/
     end

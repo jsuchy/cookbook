@@ -2,12 +2,8 @@ require 'spec_helper'
 
 describe Recipe do
   before(:each) do
-    clear_tables(Recipe, Ingredient)
     @recipe = Recipe.new
   end
-
-  it { should belong_to(:user) }
-  it { should have_many(:ingredients) }
 
   it "knows if it is associated with specified user" do
     @recipe.user_id = 12
