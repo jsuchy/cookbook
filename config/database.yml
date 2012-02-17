@@ -1,9 +1,10 @@
 development:
-  adapter: mysql2
-  database: cookbook_development
-  username: root
+  adapter: postgresql
+  username: jsuchy
   password:
-  socket: /tmp/mysql.sock
+  database: cookbook_develpoment
+  encoding: utf8
+  template: template0
 
 test: &test
   adapter: sqlite3
