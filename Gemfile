@@ -4,8 +4,8 @@ gem 'rack', '1.4.1'
 gem 'rails', '3.2.1'
 gem 'rake', '0.9.2.2'
 
-  gem 'pg', '0.13.1'
 group :production do
+  gem 'pg', '0.13.1'
 end
 
 group :test, :development do
