@@ -4,6 +4,7 @@ gem 'pg', '0.13.1'
 gem 'rack', '1.4.1'
 gem 'rails', '3.2.11'
 gem 'rake', '0.9.2.2'
+gem 'unicorn'
 
 group :test, :development do
   gem 'heroku', '2.20.0'
