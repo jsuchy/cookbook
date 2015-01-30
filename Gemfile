@@ -7,7 +7,7 @@ gem 'rake', '0.9.2.2'
 gem 'unicorn'
 
 group :test, :development do
-  gem 'heroku', '2.20.0'
+  gem 'heroku'
   gem "rspec-rails", '2.8.1'
   gem 'sqlite3', '1.3.5'
 end
